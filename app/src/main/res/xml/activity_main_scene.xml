@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="6000">
+       <KeyFrameSet>
+           <KeyPosition
+               motion:motionTarget="@+id/star"
+               motion:framePosition="50"
+               motion:keyPositionType="parentRelative"
+               motion:percentY=".5" />
+           <KeyAttribute
+               motion:motionTarget="@+id/star"
+               motion:framePosition="0"
+               android:alpha="0.2"
+               android:scaleX="0.4"
+               android:scaleY="0.4"
+               android:rotation="720" />
+       </KeyFrameSet>
+        <OnSwipe motion:touchAnchorId="@id/star"
+            motion:touchAnchorSide="right" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:layout_height="28dp"
+            android:layout_width="27dp"
+            android:id="@+id/star"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="204dp"
+            android:layout_marginStart="204dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="180dp" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/star"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="72dp"
+            android:layout_marginStart="72dp" />
+    </ConstraintSet>
+</MotionScene>
